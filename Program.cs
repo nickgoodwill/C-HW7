@@ -31,6 +31,59 @@
 // Напишите программу, которая на вход принимает позиции элемента в двумерном массиве, 
 // и возвращает значение этого элемента или же указание, что такого элемента нет.
 
+// void PrintArray(int [,] matr)
+// {
+//     for (int i = 0; i < matr.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < matr.GetLength(1); j++)
+//         {
+//             Console.Write($"{matr[i, j]} ");
+//         }
+//     Console.WriteLine();
+//     }
+// }
+
+// void FillArray(int[,] matr)
+// {
+//     for (int i = 0; i < matr.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < matr.GetLength(1); j++)
+//         {
+//             matr[i,j] = new Random(). Next(1,10);
+//         }
+//     }
+// }
+
+// void Digit(int[,] matr)
+// {
+//     int k = new Random(). Next(1,10);
+//     Console.WriteLine(k);
+//     for (int i = 0; i < matr.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < matr.GetLength(1); j++)
+//         {
+//             if (matr[i,j] == k)
+//             {
+//                 Console.WriteLine($"число {k} есть в матрице");
+                
+//             } 
+//             else
+//             {
+//                 Console.WriteLine($"числа {k} нет в матрице");
+                
+//             }
+//         }
+//     }
+// }
+
+// int [,] matrix = new int [4,4];
+
+// FillArray(matrix);
+// PrintArray(matrix);
+// Digit(matrix);
+
+//Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
+
 void PrintArray(int [,] matr)
 {
     for (int i = 0; i < matr.GetLength(0); i++)
@@ -54,30 +107,27 @@ void FillArray(int[,] matr)
     }
 }
 
-void Digit(int[,] matr)
-{
-    int k = new Random(). Next(1,10);
-    Console.WriteLine(k);
-    for (int i = 0; i < matr.GetLength(0); i++)
+
+int [,] matr = new int [4, 4];
+
+FillArray(matr);
+PrintArray(matr);
+
+double aversum = 0;
+double aver = 0;
+double qty = 0;
+for (int i = 0; i < matr.GetLength(0); i++)
     {
         for (int j = 0; j < matr.GetLength(1); j++)
         {
-            if (matr[i,j] == k)
-            {
-                Console.WriteLine($"число {k} есть в матрице");
-                
-            } 
-            else
-            {
-                Console.WriteLine($"числа {k} нет в матрице");
-                
-            }
+            aversum += matr[j,i];
+            qty += 1;
         }
+        Console.WriteLine();
+        Console.WriteLine("Сумма " + (i + 1) + " столбца равна " + aversum);
+        aver = aversum / qty;
+        Console.WriteLine();
+        Console.WriteLine("Средняя арифметическая " + (i + 1) + " столбца равна " + aver);
+        aversum = 0;
+        aver = 0;
     }
-}
-
-int [,] matrix = new int [4,4];
-
-FillArray(matrix);
-PrintArray(matrix);
-Digit(matrix);
